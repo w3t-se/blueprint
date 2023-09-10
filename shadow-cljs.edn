@@ -1,0 +1,13 @@
+{:deps     {:aliases [:shadow-cljs :portfolio]}
+ :nrepl    {:port 9000
+            :host "0.0.0.0"} 
+ :dev-http {8080 ["public" "classpath:public"]}
+ :socket-repl {:port 8204}
+ :jvm-opts ["-Xmx2G"]
+ :builds   {:portfolio {:target           :browser
+                        :output-dir       "public/js/portfolio"
+                        :asset-path       "/js/portfolio"
+                        :devtools         {:preloads   [com.fulcrologic.fulcro.inspect.preload]
+                                           :after-load se.w3t.blueprint.portfolio/refresh
+                                           :http-resource-root "."}
+                        :modules          {:main {:init-fn se.w3t.blueprint.portfolio/init}}}}}
