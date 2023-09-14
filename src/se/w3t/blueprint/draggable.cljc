@@ -255,10 +255,8 @@
                                                       (fn [e] (let [drag (last (comp/class->all this DraggableArea))
                                                                     was-dragged? (comp/get-state drag :was-dragged?)]
                                                                 (if was-dragged?
-                                                                  (do (println "dragged")
-                                                                      (.stopPropagation e)
-                                                                      (comp/set-state! drag {:was-dragged? false}))
-                                                                  (println "not-dragged")))) true)
+                                                                  (.stopPropagation e)
+                                                                  (comp/set-state! drag {:was-dragged? false})))) true)
                                    (comp/set-state! this {:on-mouse-down on-mouse-down
                                                           :drag-handle drag-handle})))}
   (let [{:keys [classes draggable? style keep-position? on-mouse-up]} props
