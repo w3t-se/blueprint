@@ -1,4 +1,4 @@
-(ns se.w3t.codo.blueprint.editable-button
+(ns se.w3t.blueprint.editable-button
  (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
            #?(:clj  [com.fulcrologic.fulcro.dom-server :as dom :refer [div text form a i p img span button]]
               :cljs [com.fulcrologic.fulcro.dom :as dom :refer [div text form a i p img span button]])
@@ -32,12 +32,12 @@
 
 (comp/defsc EditableButton [this props]
   {:initLocalState (fn [this props]
-                     (println (comp/get-computed this))
                      {:edited? false})}
   (let [{:keys [on-click on-change submit-fn color classes]} (comp/get-computed this)
+        children (comp/children this)
         button-map (-> {:classes (concat [""] classes)}
                        (#(if color (conj % {:color color})))
-                       (#(if (not (tempid/tempid? (:id props))) (conj % {:onClick on-click}))))
+                       (#(if (and on-click (not (tempid/tempid? (:id props)))) (conj % {:onClick on-click}))))
         s-fn (fn [e]
                (.preventDefault e)
                (comp/set-state! this {:edited? true})
@@ -48,7 +48,9 @@
         (form {:onSubmit s-fn}
           (f/ui-text-input {:onChange on-change
                             :onBlur s-fn}))
-        (dom/text {:class "truncate text-white font-lg font-bold"} (:title props))))))
+        (if (> (count children) 0)
+          (for [c children] c)
+          (dom/text {:class "truncate text-white font-lg font-bold"} (:title props)))))))
 
 
 (def ui-editable-button (comp/computed-factory EditableButton #_{:qualifyer :button/component}))

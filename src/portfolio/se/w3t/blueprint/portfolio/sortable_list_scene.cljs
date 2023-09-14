@@ -12,13 +12,20 @@
       #_(div {} (str (comp/get-state (last (comp/class->all this DraggableArea)) :item-dragging)))
       (ui-draggable-area {:id (str "req-view" "-draggable-area")
                           :classes ["w-full h-full relative"]}
-                         (dom/div {:class "flex"
-                                   :style {:width "300px"}}
-                           (ui-sortable-list {:id (str "sortable-list")
-                                              :on-drop #(comp/transact! this `[])
-                                              :classes ["w-full h-full grid grid-flow-row auto-rows-max"]
-                                              :container-id "req-view-draggable-area"}
-                                             (for [s [0 1 2 3 4]]
-                                               (dom/button {:class "bg-black w-full text-white"} (str "Sortable: " s))))))))
+                         (ui-sortable-list {:id (str "sortable-list")
+                                            :on-drop #(comp/transact! this `[])
+                                            :classes ["w-full h-full grid 2xl:grid-cols-8 xl:grid-cols-6 auto-cols-max gap-2
+                                                       border-gray-300 dark:border-gray-700 flex items-top"]
+                                            :container-id "req-view-draggable-area"
+                                            :order-direction :horizontal}
+                                           (for [s [0 1 2 3 4]]
+                                             (dom/button {:class "bg-black w-full text-white"
+                                                          :style {:width "100px"}
+                                                          :onClick (fn [e]
+                                                                     (let [drag (last (comp/class->all this DraggableArea))
+                                                                           was-dragged? (comp/get-state drag :was-dragged?)]
+                                                                       (if-not was-dragged?
+                                                                         (println "click"))))}
+                                               (str "Sortable: " s)))))))
 
 (def ui-sortable-list-scene (comp/computed-factory SortableListScene))

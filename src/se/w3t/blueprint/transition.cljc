@@ -1,4 +1,4 @@
-(ns se.w3t.codo.components.blueprint.transition
+(ns se.w3t.blueprint.transition
   (:require [com.fulcrologic.fulcro.algorithms.react-interop :as interop]
             #?(:cljs ["@headlessui/react$Transition" :as Transition])))
 

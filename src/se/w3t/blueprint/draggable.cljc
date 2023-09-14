@@ -183,11 +183,13 @@
   (fn [e]
     (let [plane (last (comp/class->all this DraggableArea))
           item-dragging-chan (comp/get-state plane :item-dragging)]
-      (reset! item-dragging-chan nil)
+      #_(reset! item-dragging-chan nil)
+      #_(println "dsa")
       #_(go (as/into [] item-dragging-chan))
-      (comp/set-state! this {:end-pos (comp/get-state this :pos)
-                             :dragging? false})
+      (comp/set-state! this {:dragging? false
+                             :end-pos (comp/get-state this :pos)})
       (comp/set-state! plane {:on-mouse-move nil
+                              :item-dragging (atom nil)
                               :on-mouse-up nil}))))
 
 (defn on-mouse-down-factory [this props]
@@ -207,6 +209,7 @@
                                                                          displacement)
                                                            bounding-rect)
                                   p (if end-pos (vector-plus p end-pos) p)]
+                              (comp/set-state! plane {:was-dragged? true})
                               (comp/set-state! this {:pos p}))))]
     (fn [e]
       (let [plane (last (comp/class->all this DraggableArea))
@@ -228,40 +231,51 @@
                                :height (.-clientHeight this-obj)
                                :width (.-clientWidth this-obj)})
         (comp/set-state! plane {:on-mouse-move (move-fn-factory displacement this props)
+                                :was-dragged? false
                                 :on-mouse-up (on-mouse-up-factory this props)})))))
 
 (defsc Draggable [this props]
   {:ident (fn [] [::Draggable (:id props)])
    :initLocalState (fn [this props]
-                     (let [{:keys [id drag-handle-id]} props]
-                       {:pos nil
+                     (let [{:keys [id init-pos]} props]
+                       {:pos (if init-pos init-pos [0 0])
                         :dragging? false
                         :ref-fn (ref-fn-factory this id)
                         :on-mouse-down (on-mouse-down-factory this props)}))
    :componentDidMount (fn [this] (let [props (comp/props this)
-                                       {:keys [drag-handle-id parent]} props
+                                       {:keys [drag-handle-id parent id]} props
                                        drag-handle #?(:clj nil
                                                       :cljs (gobj/get parent drag-handle-id))
+                                       this-handle #?(:clj nil
+                                                      :cljs (gobj/get this id))
                                        on-mouse-down (on-mouse-down-factory this props)]
                                    (if drag-handle
                                      (.addEventListener drag-handle "mousedown" on-mouse-down))
+                                   (.addEventListener this-handle "click"
+                                                      (fn [e] (let [drag (last (comp/class->all this DraggableArea))
+                                                                    was-dragged? (comp/get-state drag :was-dragged?)]
+                                                                (if was-dragged?
+                                                                  (do (println "dragged")
+                                                                      (.stopPropagation e)
+                                                                      (comp/set-state! drag {:was-dragged? false}))
+                                                                  (println "not-dragged")))) true)
                                    (comp/set-state! this {:on-mouse-down on-mouse-down
                                                           :drag-handle drag-handle})))}
-  (let [{:keys [classes draggable? style keep-position?]} props
-        {:keys [ref-fn on-mouse-down dragging? pos height width drag-handle]} (comp/get-state this)]
+  (let [{:keys [classes draggable? style keep-position? on-mouse-up]} props
+        {:keys [ref-fn on-mouse-down dragging? pos height width drag-handle was-dragged?]} (comp/get-state this)]
     (dom/div (merge {:style (merge {}
                                    style
                                    (if dragging?
                                      {:height height
-                                      :width width})
-                                   (if keep-position?
-                                     {:transform (str "translate(" (first pos)  "px," (second pos) "px)")}
-                                      (if dragging?
-                                        {:transform (str "translate(" (first pos)  "px," (second pos) "px)")})))
+                                      :width width
+                                      :transform (str "translate(" (first pos)  "px," (second pos) "px)")}
+                                     (if keep-position?
+                                       {:transform (str "translate(" (first pos)  "px," (second pos) "px)")})))
                      :draggable? (or draggable? true)
                      :classes (into [(if dragging? "absolute z-50 w-fit h-fit")] classes)
                      :ref ref-fn}
-                    (if drag-handle {} {:onMouseDown on-mouse-down}))
+                    (if drag-handle {} {:onMouseDown on-mouse-down})
+                    #_(if on-mouse-up {:onMouseUp on-mouse-up}))
       (comp/children this))))
 
 (def ui-draggable (comp/factory Draggable {:keyfn (fn [props] (str ::Draggable (:id props)))}))
