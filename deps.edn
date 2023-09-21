@@ -5,7 +5,7 @@
         
         se.w3t/fulcro-rad-flowbite {;:local/root "../fulcro-rad-flowbite"
                                     :git/url "https://github.com/w3t-se/fulcro-rad-flowbite.git"
-                                    :sha "4319c0ee2333619dbd70769f045a2e8e090e659d"}
+                                    :sha "63a2abba6a9fbb0f27d109bad62d9d857c2f52f3"}
         io.helins/timer.cljs                   {:mvn/version "2.0.0"}}
  :aliases {:portfolio {:extra-paths ["src/portfolio"]
                        :extra-deps {no.cjohansen/portfolio {:mvn/version "2023.07.15"}}}
