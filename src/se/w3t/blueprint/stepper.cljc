@@ -1,10 +1,10 @@
-(ns se.w3t.codo.components.blueprint.stepper
+(ns se.w3t.blueprint.stepper
  (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
            #?(:clj  [com.fulcrologic.fulcro.dom-server :as dom :refer [div h3 a i p li ol img span button]]
               :cljs [com.fulcrologic.fulcro.dom :as dom :refer [div a li ol h3 i p img span button]])
 
            [com.fulcrologic.fulcro.dom.events :as events]
-           [se.w3t.codo.components.blueprint.icons.solid :as s :refer [check clipboard-document-list cube]]
+           [se.w3t.blueprint.icons.solid :as s :refer [check clipboard-document-list cube]]
            [com.fulcrologic.fulcro.algorithms.tempid :as tempid]
            [se.w3t.flowbite.factories :as f]))
 

@@ -1,4 +1,4 @@
-(ns se.w3t.codo.components.blueprint.markdown
+(ns se.w3t.blueprint.markdown
   (:require [com.fulcrologic.fulcro.algorithms.react-interop :as interop]
             [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
             #?(:cljs ["react-markdown" :default ReactMarkdown])

@@ -1,4 +1,4 @@
-(ns se.w3t.codo.components.blueprint.placeholder-image
+(ns se.w3t.blueprint.placeholder-image
   (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
             #?(:clj  [com.fulcrologic.fulcro.dom-server :as dom :refer [div svg path a i p img span button]]
                :cljs [com.fulcrologic.fulcro.dom :as dom :refer [div svg path a i p img span button]])))

@@ -3,10 +3,8 @@
             #?(:clj  [com.fulcrologic.fulcro.dom-server :as dom :refer [div a i p img span button input form label]]
                :cljs [com.fulcrologic.fulcro.dom :as dom :refer [div a i p img span button input form label]])
 
-            [se.w3t.codo.components.blueprint.icons.solid :refer [magnifying-glass]]
-            [com.fulcrologic.fulcro.dom.events :as events]
-            
-            [se.w3t.flowbite.factories :as f]))
+            [se.w3t.blueprint.icons.solid :refer [magnifying-glass]]
+            [com.fulcrologic.fulcro.dom.events :as events]))
 
 (comp/defsc SearchInput [this props]
   {:initLocalState (fn [_] {:search ""})}

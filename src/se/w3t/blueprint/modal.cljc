@@ -1,12 +1,8 @@
-(ns se.w3t.codo.components.blueprint.modal
+(ns se.w3t.blueprint.modal
  (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
            #?(:clj  [com.fulcrologic.fulcro.dom-server :as dom :refer [div a i p img span button]]
               :cljs [com.fulcrologic.fulcro.dom :as dom :refer [div a i p img span button]])
-
-           [com.fulcrologic.fulcro.dom.events :as events]
-           [se.w3t.blueprint.icons.solid :refer [x-mark]]
-           
-           [se.w3t.flowbite.factories :as f]))
+           [se.w3t.blueprint.icons.solid :refer [x-mark]]))
 
 (comp/defsc Modal [this props]
   {}

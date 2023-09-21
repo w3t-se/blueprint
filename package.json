@@ -8,6 +8,11 @@
     "flowbite-react": "^0.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-ipfs-image": "^0.7.1"
+    "react-ipfs-image": "^0.7.1",
+    "tailwind-datepicker-react": "^1.4.2",
+    "react-markdown": "^8.0.7",
+    "rehype-highlight": "^6.0.0",
+    "remark-gfm": "^3.0.0",
+    "highlight.js": "^11.8.0"
   }
 }

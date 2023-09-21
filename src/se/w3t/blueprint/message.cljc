@@ -39,6 +39,6 @@
          (merge/merge-component! app Message (comp/get-initial-state Message {:id id :content content :type type})
                                  :replace [:root/message])
          (timer/in timer/main-thread 3000
-                   #(comp/transact! app `[(se.w3t.codo.mutations/remove-entity {:id ~[:message/id id] :send-remote false})]))))))
+                   #(comp/transact! app `[(se.w3t.blueprint.mutations/remove-entity {:id ~[:message/id id] :send-remote false})]))))))
 
 (def ui-message (comp/computed-factory Message))

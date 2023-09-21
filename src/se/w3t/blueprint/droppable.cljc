@@ -8,10 +8,9 @@
             #?(:cljs [goog.object :as gobj])
             #?(:cljs ["mouse-speed" :as mp :refer [MouseSpeed]])
                                         ;#?(:cljs ["react-motion" :refer [Motion spring]])
-            [se.w3t.codo.components.helpers.draggable :as d]
             [com.fulcrologic.fulcro.algorithms.react-interop :as interop]))
 
-(defsc Droppable [this props]
+#_(defsc Droppable [this props]
   {:initLocalState (fn [this props]
                      (let [{:keys [id plane container-id children draggable? bounding-rect extra-classes]} props
                            {:keys [plat]} this]
@@ -33,4 +32,4 @@
       children
       )))
 
-(def ui-droppable (comp/computed-factory Droppable))
+#_(def ui-droppable (comp/computed-factory Droppable))
