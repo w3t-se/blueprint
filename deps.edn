@@ -1,13 +1,13 @@
-{:deps {org.clojure/clojurescript              {:mvn/version "1.11.60"}
+{:deps {org.clojure/clojurescript              {:mvn/version "1.11.121"}
         org.clojure/clojure                    {:mvn/version "1.11.1"}
-        org.clojure/core.async                 {:mvn/version "1.5.648"}
-        com.fulcrologic/fulcro                 {:mvn/version "3.6.2"}
+        org.clojure/core.async                 {:mvn/version "1.6.681"}
+        com.fulcrologic/fulcro                 {:mvn/version "3.6.10"}
         
-        se.w3t/fulcro-rad-flowbite { ;;:local/root "../fulcro-rad-flowbite"
+        se.w3t/fulcro-rad-flowbite {;:local/root "../fulcro-rad-flowbite"
                                     :git/url "https://github.com/w3t-se/fulcro-rad-flowbite.git"
-                                    :sha "258df22d12f8ddebe47f3bf23ed011e1a3f578a0"}
+                                    :sha "4319c0ee2333619dbd70769f045a2e8e090e659d"}
         io.helins/timer.cljs                   {:mvn/version "2.0.0"}}
  :aliases {:portfolio {:extra-paths ["src/portfolio"]
                        :extra-deps {no.cjohansen/portfolio {:mvn/version "2023.07.15"}}}
-           :shadow-cljs {:extra-deps {thheller/shadow-cljs {:mvn/version "2.21.0"}}}}
+           :shadow-cljs {:extra-deps {thheller/shadow-cljs {:mvn/version "2.25.5"}}}}
  :paths ["src"]}

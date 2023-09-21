@@ -1,12 +1,13 @@
 {
   "dependencies": {
     "@headlessui/react": "^1.7.17",
-    "@js-joda/core": "3.2.0",
-    "@js-joda/timezone": "2.8.0",
-    "axe-core": "4.7.0",
-    "big.js": "6.1.1",
+    "@js-joda/core": "^5.5.3",
+    "@js-joda/timezone": "^2.18.0",
+    "axe-core": "^4.8.2",
+    "big.js": "^6.2.1",
     "flowbite-react": "^0.6.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-ipfs-image": "^0.7.1"
   }
 }

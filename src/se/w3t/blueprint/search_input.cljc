@@ -1,4 +1,4 @@
-(ns se.w3t.codo.components.blueprint.search-input
+(ns se.w3t.blueprint.search-input
   (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
             #?(:clj  [com.fulcrologic.fulcro.dom-server :as dom :refer [div a i p img span button input form label]]
                :cljs [com.fulcrologic.fulcro.dom :as dom :refer [div a i p img span button input form label]])

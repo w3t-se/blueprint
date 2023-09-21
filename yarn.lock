@@ -45,15 +45,15 @@
   dependencies:
     client-only "^0.0.1"
 
-"@js-joda/core@3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@js-joda/core/-/core-3.2.0.tgz#3e61e21b7b2b8a6be746df1335cf91d70db2a273"
-  integrity sha512-PMqgJ0sw5B7FKb2d5bWYIoxjri+QlW/Pys7+Rw82jSH0QN3rB05jZ/VrrsUdh1w4+i2kw9JOejXGq/KhDOX7Kg==
+"@js-joda/core@^5.5.3":
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/@js-joda/core/-/core-5.5.3.tgz#defac1f9af382178104ad327af1ec97446039752"
+  integrity sha512-7dqNYwG8gCt4hfg5PKgM7xLEcgSBcx/UgC92OMnhMmvAnq11QzDFPrxUkNR/u5kn17WWLZ8beZ4A3Qrz4pZcmQ==
 
-"@js-joda/timezone@2.8.0":
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/@js-joda/timezone/-/timezone-2.8.0.tgz#5424265c6dded1281eb5c104167eae208edb55e1"
-  integrity sha512-ewNYIveVviDztEnVtyPvJsrhIlut5jO73HB5SVss2ErmannjENOaNMjeuVsQ5+XSc+x3PpKT2eyCF0SJSPxr3g==
+"@js-joda/timezone@^2.18.0":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@js-joda/timezone/-/timezone-2.18.0.tgz#b12128cbfc7d15c2f7180db55cb4719b85ab05f1"
+  integrity sha512-NjNDwj2AuFzVgW1XvKq3t0oH/BwK+Zsu6TiCsDkQZFx4h3W3oKgmUJUKleMBHMFJvh7sQRTK9hSqK/6izBuyAA==
 
 "@popperjs/core@^2.9.3":
   version "2.11.8"
@@ -67,15 +67,15 @@ aria-hidden@^1.2.3:
   dependencies:
     tslib "^2.0.0"
 
-axe-core@4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.7.0.tgz#34ba5a48a8b564f67e103f0aa5768d76e15bbbbf"
-  integrity sha512-M0JtH+hlOL5pLQwHOLNYZaXuhqmvS8oExsqB1SBYgA4Dk7u/xx+YdGHXaK5pyUfed5mYXdlYiphWq3G8cRi5JQ==
+axe-core@^4.8.2:
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.8.2.tgz#2f6f3cde40935825cf4465e3c1c9e77b240ff6ae"
+  integrity sha512-/dlp0fxyM3R8YW7MFzaHWXrf4zzbr0vaYb23VBFCl83R7nWNPg/yaQw2Dc8jzCMmDVLhSdzH8MjrsuIUuvX+6g==
 
-big.js@6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/big.js/-/big.js-6.1.1.tgz#63b35b19dc9775c94991ee5db7694880655d5537"
-  integrity sha512-1vObw81a8ylZO5ePrtMay0n018TcftpTA5HFKDaSuiUDBo8biRBtjIobw60OpwuvrGk+FsxKamqN4cnmj/eXdg==
+big.js@^6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/big.js/-/big.js-6.2.1.tgz#7205ce763efb17c2e41f26f121c420c6a7c2744f"
+  integrity sha512-bCtHMwL9LeDIozFn+oNhhFoq+yQ3BNdnsLSASUxLciOb1vgvpHsIO1dsENiGMgbb4SkP5TrzWzRiLddn8ahVOQ==
 
 classnames@^2.2.6:
   version "2.3.2"
@@ -154,6 +154,11 @@ react-indiana-drag-scroll@^2.2.0:
     classnames "^2.2.6"
     debounce "^1.2.0"
     easy-bem "^1.1.1"
+
+react-ipfs-image@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/react-ipfs-image/-/react-ipfs-image-0.7.1.tgz#1a4a19e7b0cb14404c74f190996a9508bdebbb0b"
+  integrity sha512-PN4Ji77YDkZJ67CoZkbcW/iQ6UMxrkIHe6Y7EXv3ehBzKhYgp99ju7GqQ/x8/j1DwtmRunhvwbmk3rdtR6ZtWQ==
 
 react@^18.2.0:
   version "18.2.0"

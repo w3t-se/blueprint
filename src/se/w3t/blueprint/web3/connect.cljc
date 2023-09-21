@@ -1,4 +1,4 @@
-(ns se.w3t.codo.components.blueprint.web3.connect
+(ns se.w3t.blueprint.web3.connect
  (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
            #?(:clj  [com.fulcrologic.fulcro.dom-server :as dom :refer [div h3 a i p li ol img span button]]
               :cljs [com.fulcrologic.fulcro.dom :as dom :refer [div a li ol h3 i p img span button]])
@@ -8,8 +8,9 @@
            [com.fulcrologic.fulcro.algorithms.tempid :as tempid]
            [se.w3t.flowbite.factories :as f]
            [applied-science.js-interop :as j]
-           [se.w3t.codo.components.blueprint.icons.web3 :refer [ethereum polygon optimism arbitrum hardhat]]
-           #?(:cljs ["wagmi" :as wagmi :refer [useConnect useAccount useDisconnect useEnsAvatar useEnsName useNetwork useSwitchNetwork]])))
+           [se.w3t.blueprint.icons.web3 :refer [ethereum polygon optimism arbitrum hardhat]]
+           #?(:cljs ["wagmi" :as wagmi :refer [useConnect useAccount useDisconnect useEnsAvatar
+                                                     useEnsName useNetwork useSwitchNetwork]])))
 
 #?(:cljs (comp/defsc Connect [this props]
            {;; :ident :connect/id
